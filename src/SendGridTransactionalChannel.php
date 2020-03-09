@@ -1,8 +1,8 @@
 <?php
 
 namespace LaravelSendGridChannel;
-use GuzzleHttp\Client;
 
+use GuzzleHttp\Client;
 use Illuminate\Notifications\Notification;
 
 class SendGridTransactionalChannel
@@ -27,7 +27,7 @@ class SendGridTransactionalChannel
                     'personalizations' => [
                         [
                             'to' => $data['to'],
-			    'dynamic_template_data' => $data['data'],
+                            'dynamic_template_data' => $data['data'],
                         ],
                     ],
                     'template_id' => $data['template_id']
