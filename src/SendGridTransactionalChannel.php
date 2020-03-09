@@ -27,6 +27,7 @@ class SendGridTransactionalChannel
                     'personalizations' => [
                         [
                             'to' => $data['to'],
+			    'dynamic_template_data' => $data['data'],
                         ],
                     ],
                     'template_id' => $data['template_id']
