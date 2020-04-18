@@ -16,13 +16,13 @@ class SendGridTransactionalChannel
         $client->post('https://api.sendgrid.com/v3/mail/send',
             [
                 'headers' => [
-                    'Authorization' => 'Bearer ' . config('mail.sendgrid.api-key'),
+                    'Authorization' => 'Bearer ' . config('sendgrid.api-key'),
                     'Content-Type' => 'application/json ',
                 ],
                 'json' => [
                     'from' => [
-                        'email' => config('mail.from.address'),
-                        "name" => config('app.name'),
+                        'email' => $data['from_email'],
+                        "name" => $data['from_name'],
                     ],
                     'personalizations' => [
                         [
@@ -30,7 +30,12 @@ class SendGridTransactionalChannel
                             'dynamic_template_data' => $data['data'],
                         ],
                     ],
-                    'template_id' => $data['template_id']
+                    'mail_settings' => [
+                        'sandbox_mode' => [
+                            'enable' => $data['sandbox'] === true,
+                        ],
+                    ],
+                    'template_id' => $data['template_id'],
                 ],
             ]
         );
