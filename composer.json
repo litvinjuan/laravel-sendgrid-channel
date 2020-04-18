@@ -10,7 +10,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "guzzle/guzzle": "^3.9",
+        "guzzlehttp/guzzle": "^6.5",
         "illuminate/notifications": "6.*|7.*",
         "illuminate/support": "6.*|7.*"
     },
