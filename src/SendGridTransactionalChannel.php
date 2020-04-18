@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelSendGridChannel;
+namespace litvinjuan\LaravelSendGridChannel;
 
 use GuzzleHttp\Client;
 use Illuminate\Notifications\Notification;
