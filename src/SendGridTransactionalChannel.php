@@ -21,8 +21,8 @@ class SendGridTransactionalChannel
                 ],
                 'json' => [
                     'from' => [
-                        'email' => $data['from_email'],
-                        "name" => $data['from_name'],
+                        'email' => $data['from']['email'],
+                        "name" => $data['from']['name'],
                     ],
                     'personalizations' => [
                         [
@@ -32,7 +32,7 @@ class SendGridTransactionalChannel
                     ],
                     'mail_settings' => [
                         'sandbox_mode' => [
-                            'enable' => $data['sandbox'] === true,
+                            'enable' => config('sendgrid.sandbox-enabled') !== false,
                         ],
                     ],
                     'template_id' => $data['template_id'],
